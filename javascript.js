@@ -1,27 +1,57 @@
 function getComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3);
-    if (randomNumber === 0) {
-        return "Rock";
-    } else if (randomNumber === 1) {
-        return "Paper";
+    const computerChoice = Math.floor(Math.random() * 3);
+    if (computerChoice === 0) {
+        return "rock";
+    } else if (computerChoice === 1) {
+        return "paper";
     } 
-        return "Scissors";
+        return "scissors";
     }
 
-
-//create function to return "rock" "paper" "scissors"//
-
-//create prompt for user input and limit choices to only allow "rock" "paper" "scissors"//
-
 function getHumanChoice() {
-    if (getHumanChoice === "Rock" && getComputerChoice === "Scissors") {
-        return "You Win!";
-    } else if (getHumanChoice === "Paper" && getComputerChoice === "Rock") {
-        return "You Win!";
-    } else if (getHumanChoice === "Scissors" && getComputerChoice === "Paper") {
-        return "You Win!";
-    } return "it's a Draw"
-
+    let humanChoice = prompt("Will you pick Rock, Paper or Scissors?");
+    console.log(humanChoice);
+    return humanChoice;
 }
 
-console.log();
+var humanScore = 0;
+var computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    if (getHumanChoice === "rock" && getComputerChoice === "scissors") {
+        console.log("Rock beats Scissors! You Win!");
+        humanScore += 1
+        return;
+    } 
+    else if (getHumanChoice == "paper" && getComputerChoice == "rock") {
+        console.log("Paper beats Rock! You Win!");
+        humanScore += 1
+        return;
+    } 
+    else if (getHumanChoice == "scissors" && getComputerChoice == "paper") {
+        console.log("Scissors beats Paper! You Win!");
+        humanScore += 1
+        return;
+    } 
+    else if (getHumanChoice == "paper" && getComputerChoice == "scissors") {
+        console.log("Scissors beats Paper! You Lose!");
+        computerScore += 1
+        return;
+    }
+    else if (getHumanChoice == "paper" && getComputerChoice == "rock") {
+        console.log("Paper beats Rock! You Lose!");
+        computerScore += 1
+        return;
+    }
+    else if (getHumanChoice == "rock" && getComputerChoice == "scissors") {
+        console.log("Rock beats Scissors! You Lose!");
+        computerScore += 1
+        return;
+    } 
+    else {
+        console.log ("It's a Draw!")
+        return;
+    }
+}
+
